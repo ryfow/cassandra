@@ -346,6 +346,16 @@ Example:
                     ]
 
     @client.get_indexed_slices(:Statuses, expressions).length       # returns 5
+### add_keyspace
+This method is used to create a keyspace. The parameter is a Cassandra::Keyspace object. The simplest Keyspace I've been able to create is:
+
+@client.add_keyspace Cassandra::Keyspace.new(:name => "KeyspaceName", 
+                                             :strategy_class => 'org.apache.cassandra.locator.SimpleStrategy', 
+				      	     :strategy_options => {"replication_factor" => "1"}, 
+					     :cf_defs => [])
+
+
+
 
 ## Reporting Problems
 
